@@ -1,5 +1,6 @@
 import React from 'react';
 
+//since the call is asynchronous it would throw an error if there wasnt a fallback
 const VideoDetail = ({video}) => {
 if(!video){
     return <div>Loading...</div>

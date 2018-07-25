@@ -17,13 +17,15 @@ class App extends Component {
         super(props);
 
         this.state = { 
+            //array of all the videos given by the YT API
             videos: [],
+            //the selected video
             selecetedVideo: null
         };
-
+        //the initial search
         this.videoSearch("react js")
     }
-    
+    //the api call function 
     videoSearch = (search) =>{
         YTSearch({key:API_KEY, term: search}, videos=>{
             this.setState({
@@ -34,7 +36,7 @@ class App extends Component {
     }
 
     render(){
-
+        //thottles the call function
         const videoSearch = _.debounce( (term)=>{this.videoSearch(term)} , 300 );
 
         return (
